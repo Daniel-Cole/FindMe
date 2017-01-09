@@ -1,0 +1,148 @@
+<div class="middle-column">
+    <div class="form-center">
+        <h3> Welcome to FindMe </h3>
+        <hr>
+        <!-- All these options should bring up a modal that can be interacted with -->
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg" {{action "joinLobbyModal"}}> Join Lobby</a></div>
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg" {{action "createLobbyModal"}}> Create Lobby </a></div>
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg" {{action "viewLobbiesModal"}}> View Lobbies </a></div>
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg disabled" {{action "addFriends"}}> Add Friends </a></div>
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg" {{action "preferences"}}> Preferences </a></div>
+        <div class="fill-width btn-lg-bot-margin"><a class="btn-primary btn-lg" {{action "logout"}}> Logout </a></div>
+    </div>
+</div>
+<div class="modalContainer">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{modalTitle}}</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- JOIN LOBBY MODAL -->
+                    {{#if joinLobby}}
+                        <form {{action "joinLobbySpecified" true on="submit"}}>
+                            {{#if isProcessing}}
+                                <div class="alert alert-info">Attempting to join lobby</div>
+                            {{/if}}
+                            {{#if loginFailed}}
+                                <div class="alert alert-danger control-alert">Join lobby failed: {{failedMessage}}</div>
+                            {{/if}}
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label>Lobby Name:</label>
+                                </div>
+                                <div class="controls">
+                                    {{input value=lobbyName type="text"}}
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label>Owner:</label>
+                                </div>
+                                <div class="controls">
+                                    {{input value=lobbyOwner type="text"}}
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label>Lobby Password:</label>
+                                </div>
+                                <div class="controls">
+                                    {{input value=password type="password"}}
+                                </div>
+                            </div>
+                            <div class="fill-width">
+                                <button type="submit" class="btn btn-margin-top btn-margin-bottom btn-primary btn-lg fill-width" {{bindAttr disabled="isProcessing"}}>
+                                    Join Lobby
+                                </button>
+                            </div>
+                        </form>
+                    {{/if}}
+                    <!-- END LOBBY JOIN MODAL -->
+                    <!-- CREATE LOBBY MODAL -->
+                    {{#if creatingLobby}}
+                        <form {{action "createLobby" on="submit"}}>
+                            {{#if isProcessing}}
+                                <div class="alert alert-info">Attempting to create lobby</div>
+                            {{/if}}
+                            {{#if loginFailed}}
+                                <div class="alert alert-danger control-alert">Create lobby failed: {{failedMessage}}</div>
+                            {{/if}}
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label>Lobby Name:</label>
+                                </div>
+                                <div class="controls">
+                                    {{input value=lobbyName type="text"}}
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label>Lobby Password:</label>
+                                </div>
+                                <div class="controls">
+                                    {{input value=password type="password"}}
+                                </div>
+                            </div>
+                            <div class="fill-width">
+                                <button type="submit" class="btn btn-margin-top btn-margin-bottom btn-primary btn-lg fill-width" {{bindAttr disabled="isProcessing"}}>
+                                    Create Lobby
+                                </button>
+                            </div>
+                        </form>
+                    {{/if}}
+                    <!-- CREATE LOBBY MODAL END -->
+                    <!-- VIEWING LOBBY MODAL -->
+                    {{#if viewingLobbies}}
+                        <div class="list-group">
+                            {{#each lobbies as |lobby|}}
+                                {{#if lobby.authenticated}}
+                                    <div id="leftDiv">
+                                        <a href="#" class="list-group-item modal-list-item modal-list-item-auth" id="lobby-{{lobby.id}}" {{action "setSelectedLobby" lobby.id true activeLobbyID activeLobbyAuth}}><h3>{{lobby.lobbyName}}</h3>owner: <b>{{lobby.owner}}</b>
+            {{#if (check-id lobby.id activeLobbyID)}}
+            <br>
+            <hr align="left" width="50%">
+            <button type="button" class="btn btn-lg btn-default modal-list-button" {{action "joinLobby" activeLobbyID}}> Join </button>
+            {{/if}}
+          </a>
+                                    </div>
+                                {{else}}
+                                    <a href="#" class="list-group-item modal-list-item modal-list-item-no-auth" id="lobby-{{lobby.id}}" {{action "setSelectedLobby" lobby.id false activeLobbyID activeLobbyAuth}}><h3>{{lobby.lobbyName}}</h3>owner: <b>{{lobby.owner}}</b>
+          <!-- check to see if password needs to be displayed -->
+          {{#if displayPassword}}
+          {{#if (check-id lobby.id activeLobbyID)}}
+          <hr width="50%" align="left">
+           <label> password:</label> 
+           <br>
+           <input class="modal-list-input" type="password" maxLength="20" id="lobby-{{lobby.id}}-password">
+           <br>
+           <button type="button" class="btn btn-lg btn-default modal-list-button" {{action "joinLobby" activeLobbyID}}> Join </button>
+           {{/if}}
+           {{/if}}
+          </a>
+                                {{/if}}
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    {{#if addingFriends}}
+                        <p> adding friends m9 </p>
+                        {{input value=friend placeholder="username"}}
+                        <button class="btn-lg btn-default"> Send Request
+                        </button>
+                    {{/if}}
+                    {{#if settingPreferences}}
+                        <p> prefs m9 </p>
+                    {{/if}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END VIEWING LOBBY MODAL -->

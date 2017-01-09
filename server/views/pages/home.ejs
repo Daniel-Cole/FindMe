@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script src="/scripts/home.js"></script>
+</head>
+
+<body>
+<!-- Join a lobby Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinLobbyModal">Join a Lobby</button>
+<div class="modal fade" id="joinLobbyModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Join a Lobby</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="lobby-name-label" class="control-label">Lobby Name:</label>
+            <input type="text" class="form-control" id="lobby-name-join">
+            <label for="owner-name-label" class="control-label">Lobby Owner:</label>
+            <input type="text" class="form-control" id="owner-name-join">
+            <label for="lobby-password-label" class="control-label">Lobby Password</label>
+            <input type="password" class="form-control" id="lobby-password-join">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" onclick="joinLobby();" id="joinLobbyBtn" class="btn btn-primary">Join Lobby</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create a lobby -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createLobbyModal">Create a Lobby</button>
+<div class="modal fade" id="createLobbyModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Create a Lobby</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="lobby-name-label" class="control-label">Lobby Name:</label>
+            <input type="text" class="form-control" id="lobby-name-create">
+            <label for="lobby-password-label" class="control-label">Lobby Password:</label>
+            <input type="password" class="form-control" id="lobby-password-create">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" onclick="createLobby();" id="createLobbyBtn" class="btn btn-primary">Create Lobby</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- This modal is designed to display each lobby that is current available to the user --> 
+<button type="button" onclick="displayLobbies();" class="btn btn-primary" data-toggle="modal" data-target="#displayLobbiesModal">View Lobbies</button>
+<div class="modal fade" id="displayLobbiesModal" tabindex="-1" role="dialog" aria-labelledby="displayLobbiesModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="displayLobbiesModal">Displaying Availabile Lobbies</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+          	<label for="lobby-name-label" class="control-label">name | owner</label>
+            <ul class = "list-group" id="lobbyList">
+				
+			</ul>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" onclick='displayLobbies();' id="refreshLobbyBtn" class="btn btn-primary">Refresh</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

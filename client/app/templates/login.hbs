@@ -1,0 +1,41 @@
+<div class="middle-column">
+    <form class="form" {{action "login" on="submit"}}>
+        <h2> Login to FindMe </h2>
+        <hr>
+        {{#if isProcessing}}
+            <div class="alert alert-info">Attempting to login</div>
+        {{/if}}
+        {{#if loginFailed}}
+            <div class="alert alert-danger control-alert">Login failed: {{failedMessage}}</div>
+        {{/if}}
+        <div class="control-group">
+            <div class="control-label">
+                <label>Username:</label>
+            </div>
+            <div class="controls">
+                {{input value=username type="text"}}
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                <label>Password:</label>
+            </div>
+            <div class="controls">
+                {{input value=password type="password"}}
+            </div>
+        </div>
+        <div class="fill-width">
+            <button type="submit" class="btn btn-margin-top btn-margin-bottom btn-primary btn-lg fill-width" {{bindAttr disabled="isProcessing"}}>
+                Log in!
+            </button>
+        </div>
+        <div class="fill-width link-text">
+            {{#link-to 'recover-account'}}
+                <a> Unable to access your account? </a>
+            {{/link-to}}
+        </div>
+        {{#link-to 'register'}}
+            <a> Create an account </a>
+        {{/link-to}}
+    </form>
+</div>

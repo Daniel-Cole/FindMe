@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script src="/scripts/register.js"></script>
+</head>
+
+<body>
+	<h1>Hello and welcome to the findmeApp</h1>
+	<form id="registrationForm" class="form-horizontal">
+    <div class="form-group">
+
+    	<label class="col-xs-3 control-label">Username:</label>
+        <div class="col-xs-7">
+        	<input type="text" id="usernameField" class="form-control" placeholder="username" aria-describedby="basic-addon1">
+    	</div>
+
+    </br>
+    	<label class="col-xs-3 control-label">Password:</label>
+        <div class="col-xs-7">
+        	<input type="password" id="passwordField" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+    	</div>
+    
+    <!-- Add validator for email -->
+        <label class="col-xs-3 control-label">Email Address:</label>
+        
+        <div class="col-xs-7">
+            <input type="email" id="emailField" class="form-control" placeholder="abc@123.com" />
+        </div>
+
+         <label class="col-xs-3 control-label">Security Question:</label>
+       	  <div class="col-xs-7">
+            <input type="text" id="questionField" class="form-control" placeholder="enter your security question here" aria-describedby="basic-addon1">
+        </div>
+
+        <label class="col-xs-3 control-label">Security Question:</label>
+          <div class="col-xs-7">
+            <input type="text" id="answerField" class="form-control" placeholder="enter your security answer here" aria-describedby="basic-addon1">
+        </div>
+
+        <!-- Fix alignment up -->
+        <div class="col-xs-10" text-center>
+        <button type="button" class="btn btn-default btn-lg" onclick="registerUser();"></span>Register</button>
+    	</div>
+    </div>
+</form>
+	
+</body>
+</html>

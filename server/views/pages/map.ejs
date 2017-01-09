@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+      #container {height: 50%; width: 50%; text-align: center;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body>
+  	<div id="container">
+    <div id="map"></div>
+</div>
+  <div id="actionbar"> 
+    <button onclick="getLobbyLocations()">Update map locations</button>
+  </div> 
+    <script src="/scripts/maps.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5uysz9s6O0lvOhJ3xnr7GwPVUbOeWm94&callback=initMap">
+    </script>
+  </body>
+</html>

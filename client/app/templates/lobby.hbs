@@ -1,0 +1,67 @@
+<div class="col-md-2">
+    <button {{action "checkHash"}}> checkHash </button>
+    <!-- Modal -->
+    <div id="lobbyModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{modalTitle}}</h4>
+                </div>
+                <div class="modal-body">
+                    {{#if displayMemberModal}}
+                        {{lobby-member member=memberModal}}
+                        <button class="btn btn-default disabled"> Hide
+                        </button>
+                    {{/if}}
+                    {{#if modalOptions}}
+                        <button class="btn btn-lg btn-primary btn-margin-bottom fill-width" {{action "transitionTo" '/home'}}> Home
+                        </button>
+                        <button class="btn btn-lg btn-primary btn-margin-bottom fill-width"> Preferences
+                        </button>
+                        <button class="btn btn-lg btn-primary btn-margin-bottom fill-width" {{action "transitionTo" '/'}}> Logout
+                        </button>
+                    {{/if}}
+                    {{#if modalSearch}}
+                        <ul class="list-group">
+                            {{#each members as |member|}}
+                                <li class="list-group-item modal-list-item" id="lobby-member-list-{{member.username}}">
+                                    {{#lobby-member member=member}}
+                                    {{/lobby-member}}
+                                    <div>
+                                        <button class="btn btn-default" {{action "centerMe" member.id}}> Show on map
+                                        </button>
+                                        <button class="btn btn-default disabled"> Navigate
+                                        </button>
+                                        <button class="btn btn-default" id="lobby-member-button-{{member.username}}" {{action "toggleMember" member.username}}> Hide
+                                        </button>
+                                    </div>
+                                    <!-- Need to draw the fucking circle with the right color -->
+                                    <svg class="map-circle" height="80" width="80">
+                                        <circle class="circle" cx="40" cy="40" r="30" stroke="black" stroke-width="3" fill= {{username-color member.id colors}} />
+                                    </svg>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button {{action "updateSession"}}> updateSession </button>
+{{google-map action="defineButtonAction"}}
+<h3> Lobby members: </h3>
+<hr>
+<ul class="list-group">
+    {{#each members as |member|}}
+        <li class="list-group-item" id="lobby-member-list-{{member.username}}">
+            {{#lobby-member member=member}}
+            {{/lobby-member}}
+        </li>
+    {{/each}}
+</ul>

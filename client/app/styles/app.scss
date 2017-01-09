@@ -1,0 +1,223 @@
+@import "bootstrap";
+//setting colors
+$header-footer-color: #cdecf5;
+$header-footer-border-color: #b8d4dc;
+$content-color: #f0f9fc;
+$box-border-color: #bdbdbd;
+$small-screen: 400px;
+body {
+    background-color: $content-color;
+}
+
+p {
+    padding: 5px;
+}
+
+h3 {
+    margin: 0px;
+}
+
+.modal.fade:not(.in) .modal-dialog {
+    -webkit-transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
+}
+
+.map-circle {
+    position: absolute;
+    left: 328px;
+    top: -2px;
+}
+
+.modal-content {
+    width: 500px;
+    max-width: 100%;
+}
+
+.glyphicon {
+    font-size: 20px;
+}
+
+.col-xs-12 {
+    padding: 0px;
+}
+
+.col-md-8 {
+    padding: 0px;
+}
+
+.col-md-4 {
+    padding: 0px;
+}
+
+.map-canvas {
+    height: 500px;
+    width: 900px;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 300px;
+}
+
+.lobby-member-list {
+    text-align: left;
+}
+
+.modal-list-button {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.modal-list-input {
+    //this was needed as active was changing 
+    //text color to white && user couldnt see
+    color: black;
+    width: 50%;
+}
+
+.modal-list-div {
+    margin-bottom: 4px;
+}
+
+.modal-list-item-auth {
+    border-color: GREEN;
+}
+
+.modal-list-item-no-auth {
+    border-color: RED;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 5px;
+}
+
+.modal-list-item {
+    border-width: 2px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.btn-lg-bot-margin {
+    margin-bottom: 25px;
+}
+
+.fill-width {
+    width: 100%;
+}
+
+.link-text {
+    @media screen and (max-width: $small-screen) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+// --LAYOUT
+.ember-text-field {
+    width: 100%;
+    padding-bottom: 5px;
+    border-radius: 2px;
+    border-color: #ddd;
+    border-style: solid;
+}
+
+.middle-column {
+    max-width: 320px;
+    text-align: center;
+    margin: auto;
+}
+
+.controls-error {
+    border-color: #d03633;
+}
+
+.control-alert {
+    text-align: left;
+    margin: auto;
+    width: 100%;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.control-label {
+    text-align: left;
+    margin: auto;
+    padding-top: 15px;
+}
+
+.form {
+    max-width: 380px;
+    min-width: 300px;
+    text-align: left;
+    background-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 30px;
+    border-color: #ddd;
+}
+
+.form-center {
+    max-width: 380px;
+    min-width: 300px;
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 30px;
+    border-color: #ddd;
+}
+
+.btn-margin-top {
+    margin-top: 15px;
+}
+
+.btn-margin-bottom {
+    margin-bottom: 10px;
+}
+
+// -- TEXT LAYOUT
+.paragraph-wrap {
+    //ensure that the text isn't too wide and that it wrap
+    max-width: 800px;
+    word-wrap: break-word;
+    margin: auto;
+}
+
+// CONTENT
+.header {
+    background-color: $header-footer-color;
+    //center text
+    margin: auto;
+    text-align: center;
+    //bottom border to seperate the content from header
+    border-bottom: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: $header-footer-border-color;
+}
+
+.footer {
+    background-color: $header-footer-color;
+    //center text
+    margin: auto;
+    text-align: center;
+    //position the damn footer at the bottom of the fucking page
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    //top border 
+    border-top: 3px;
+    border-top-style: solid;
+    border-top-color: $header-footer-border-color;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $header-footer-border-color;
+}
+
+.content {
+    //align content center
+    margin: auto;
+    text-align: center;
+    //padding against header and footer
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

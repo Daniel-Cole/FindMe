@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script src="/scripts/login.js"></script>
+</head>
+
+<body>
+<form id="loginForm" class="form-horizontal">
+    <div class="form-group">
+
+    	<label class="col-xs-3 control-label">Username:</label>
+        <div class="col-xs-7">
+        	<input type="text" id="usernameField" class="form-control" placeholder="username" aria-describedby="basic-addon1">
+    	</div>
+
+    	<label class="col-xs-3 control-label">Password:</label>
+        <div class="col-xs-7">
+        	<input type="password" id="passwordField" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+    	</div>
+    </br>
+        <!-- Fix alignment up -->
+        <div class="col-xs-10" text-center>
+        <button type="button" class="btn btn-default btn-lg" onclick="loginUser();"></span>Login</button>
+    	</div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<h2>Welcome to FindMe</h2>
+<div>
+    <div>
+        {{#link-to 'login'}}
+            <a class="btn btn-primary btn-lg btn-margin-bottom">Login</a>
+        {{/link-to}}
+    </div>
+    {{#link-to 'register'}}
+        <a class="btn btn-primary btn-lg">Register</a>
+    {{/link-to}}
+</div>
+<hr>
+<a href="#introduction"><h3> Introduction</h3></a>
+<a href="#how-it-works"><h3> How it works </h3></a>
+<a href="#use-cases"><h3> Use cases </h3></a>
+<hr>
+<h3 id="introduction"> Introduction </h3>
+<p class="paragraph-wrap">
+    This application has been built with the purpose of ensuring that you can split up as a group and know where they are without having to constantly communicate with them.
+</p>
+<p class="paragraph-wrap">
+    Now, I know you might be worried about having your location tracked, especially by others, but this application has been designed to ensure that your location is only shared with those who you want it to be shared with.
+</p>
+<p class="paragraph-wrap">
+    *FindMe will never hold onto any more than one location update at a time.
+</p>
+<p class="paragraph-wrap">
+    *FindMe encrypts your location as it is sent and also in the server so that not even the server admin can see what location was sent in without first decrypting it.
+</p>
+<p class="paragraph-wrap">
+    *FindMe will only broadcast your location inside a password secured lobby which you have to be invited to join by a friend
+</p>
+<p class="paragraph-wrap">
+    *FindMe allows you to have complete control over when and if you broadcast your location within a lobby
+</p>
+<!-- HOW IT WORKS-->
+<hr>
+<h3 id="how-it-works"> How it works: </h3>
+<p class="paragraph-wrap">
+    1. Register and choose a unique username which others can find you with. (You'll need to tell your friends your username for them to be able to add you)
+</p>
+<p class="paragraph-wrap">
+    2. After you have registered you can find friends by searching their username and sending them a friend request.
+</p>
+<p class="paragraph-wrap">
+    3. Once you have added a friend(s) you can then create a lobby and add as many friends as you like to the lobby.
+</p>
+<p class="paragraph-wrap">
+    4. Inside the lobby menu you can set your preferences such as: stop broadcasting location, set intervals between broadcasts, lobby expiration and password.
+</p>
+<p class="paragraph-wrap">
+    5. In the lobby map page you can see where others in your lobby are as well as show/hiding certain people in the lobby.
+</p>
+<!-- USE CASES-->
+<hr>
+<h3 id="use-cases"> Use cases: </h3>
+<p class="paragraph-wrap"> Teachers: Coordinating a large school trip to a large bird sanctuary can be difficult. The coordinator can add all the supervisors of each individual group to a FindMe lobby and then keep track of where everyone is at a particular time. </p>
+<p class="paragraph-wrap"> Friends: Going to hit the town for a big night out? Sick of getting seperated and not able to find your friends again and they always seem to never answer the phone or when they do the club is just too damn loud to be able to hear them? FindMe eliminates this problem and allows you to just open the app to see where your friends are </p>
